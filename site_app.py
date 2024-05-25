@@ -14,7 +14,7 @@ fig.update_layout(scene_zaxis_type="log")
 
 # Initialize the Dash app (normally under the name 'app')
 app = dash.Dash(__name__)
-
+server = app.server
 # Define the layout of the app
 app.layout = html.Div([
     dcc.Graph(
