@@ -8,7 +8,7 @@ mydataset = "https://raw.githubusercontent.com/santoeri28/santoeri28.gsd.key.io/
 df = pd.read_csv(mydataset, sep=';', on_bad_lines='skip')
 
 # Initialize the Dash app (normally under the name 'app')
-app = Dash(__name__)
+app = dash.Dash(__name__)
 server = app.server
 
 # Define the layout of the app
