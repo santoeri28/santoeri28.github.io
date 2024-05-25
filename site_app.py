@@ -11,6 +11,12 @@ df = pd.read_csv(mydataset, sep=';', on_bad_lines='skip')
 app = dash.Dash(__name__)
 server = app.server
 
+# Create the Plotly figure
+fig = px.scatter_3d(df, x='Ri - Di', y='Ri + Di', z='Cosine Sim', size='Ri + Di', color='W_cluster',
+                    hover_data=['Description'])
+fig.update_layout(scene_zaxis_type="log")
+
+
 # Define the layout of the app
 app.layout = html.Div([
     dcc.Graph(
@@ -18,11 +24,6 @@ app.layout = html.Div([
         figure=fig
     )
 ])
-
-# Create the Plotly figure
-fig = px.scatter_3d(df, x='Ri - Di', y='Ri + Di', z='Cosine Sim', size='Ri + Di', color='W_cluster',
-                    hover_data=['Description'])
-fig.update_layout(scene_zaxis_type="log")
 
 
 # This line allows the app to be run on a development server
